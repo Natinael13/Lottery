@@ -6,5 +6,5 @@ Created a simulation of the Mass Lottery “Lucky for Life” game. The followin
 # What I Gained
 
 * Practice working with arrays and calculations using Javascript
-* Practice with Html
-* Practice with Css
+* Practice with HTML
+* Practice with CSS

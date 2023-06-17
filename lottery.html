@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lotterystyle.css">
+    <title>Lottery</title>
+</head>
+<body>
+    <h1>HTML Lottery!!!</h1>
+    <div class="row">
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Picks:</h2>
+            <p id="pick1"></p>
+            <p id="pick2"></p>
+            <p id="pick3"></p>
+            <p id="pick4"></p>
+            <p id="pick5"></p>
+        </div>
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Picks Sorted:</h2>
+            <p id="pickSorted1"></p>
+            <p id="pickSorted2"></p>
+            <p id="pickSorted3"></p>
+            <p id="pickSorted4"></p>
+            <p id="pickSorted5"></p>
+        </div>>
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Lucky Ball:</h2>
+            <p id="luckyBall"></p>
+        </div>
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Winning Picks:</h2>
+            <p>12</p>
+            <p>15</p>
+            <p>24</p>
+            <p>35</p>
+            <p>48</p>
+        </div>
+                <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Payout:</h2>
+            <p id="payout"></p>
+        </div>
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Winning Lucky Ball:</h2>
+            <p>3</p>
+        </div>
+        <div class="column" style="background-color:rgb(233, 2, 2);">
+            <h2>Matches:</h2>
+            <p>Pick Matches</p>
+            <p id="pickMatches"></p>
+            <p>Lucky Ball Match</p>
+            <p id="luckyBallmatches"></p>
+        </div>
+    </div>
+
+    <script language="javascript">
+
+        var pick = [Math.floor(Math.random() * 48) + 1, Math.floor(Math.random() * 48) + 1,
+        Math.floor(Math.random() * 48) + 1, Math.floor(Math.random() * 48) + 1,
+        Math.floor(Math.random() * 48) + 1];
+
+        document.getElementById("pick1").innerHTML = pick[0];
+        document.getElementById("pick2").innerHTML = pick[1];
+        document.getElementById("pick3").innerHTML = pick[2];
+        document.getElementById("pick4").innerHTML = pick[3];
+        document.getElementById("pick5").innerHTML = pick[4];
+
+        pick.sort(function(a, b){return a - b});
+
+        document.getElementById("pickSorted1").innerHTML = pick[0];
+        document.getElementById("pickSorted2").innerHTML = pick[1];
+        document.getElementById("pickSorted3").innerHTML = pick[2];
+        document.getElementById("pickSorted4").innerHTML = pick[3];
+        document.getElementById("pickSorted5").innerHTML = pick[4];
+
+        var luckyBall = Math.floor(Math.random() * 18) + 1;
+
+        document.getElementById("luckyBall").innerHTML = luckyBall;
+
+        var winningpick = [12,15,24,35,48];
+        var matchcounter = 0;
+
+        for(var j = 0; j <= 4; j++){
+            for(var i = 0; i <= 4; i++){
+                if(pick[j] == winningpick[i]){
+                 matchcounter += 1;
+                }
+            }
+        }
+
+        document.getElementById("pickMatches").innerHTML = matchcounter;
+
+        winningLuckyball = 3;
+        var luckyballmatch;
+        if(luckyBall == winningLuckyball){
+            document.getElementById("luckyBallmatches").innerHTML = "Yes";
+            luckyballmatch = true;
+        }
+        else{
+            document.getElementById("luckyBallmatches").innerHTML = "No";
+            luckyballmatch = false;
+        }
+
+        switch (matchcounter) {
+      case 0:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$4";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$0";
+        }
+        break;
+        case 1:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$6";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$0";
+        }
+        break;
+        case 2:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$25";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$3";
+        }
+        break;
+        case 3:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$150";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$20";
+        }
+        break;
+        case 4:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$5,000";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$200";
+        }
+        break;
+        case 5:
+        if(luckyballmatch == true){
+            document.getElementById("payout").innerHTML = "$7,000 a WEEK for LIFE";
+        }
+        else{
+            document.getElementById("payout").innerHTML = "$25,000 a YEAR for LIFE";
+        }
+        break;
+    }
+
+    </script>
+
+
+</body>
+</html>

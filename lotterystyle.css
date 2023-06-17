@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  body {
+      background-color: aqua;
+  }
+
+  h1{
+    color: rgba(183, 196, 3, 0.897);
+    font-family: "helvetica", "copperplate", "monaco";
+}
+
+  p{
+  color: rgb(183, 196, 3, 0.897);
+  font-family: "copperplate", "helvetica", "monaco";
+  }
